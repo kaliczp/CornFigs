@@ -49,3 +49,9 @@ colnames(wheat.transform) <- c("Temp1922-1950",
                                "Temp1951-1980",
                                "Temp1981-2010",
                                "ET1981-2010")
+
+wheat.sf <- st_sf(wheat.transform, HunRegions)
+row.names(wheat.sf) <- c("Hungarian_Plain",
+                         "Transdanubia_Lowlands",
+                         "Transdanubia_Hills",
+                         "Mountains")
