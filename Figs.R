@@ -41,3 +41,5 @@ Transdanubia_Lowlands <- st_union(Hungary[
     megye_names == "Tolna"
    ,"NAME_1"]
     )
+
+HunRegions <- c(Hungarian_Plain, Transdanubia_Lowlands, Transdanubia_Hills, Mountains)
