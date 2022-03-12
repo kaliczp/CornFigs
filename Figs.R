@@ -55,3 +55,8 @@ row.names(wheat.sf) <- c("Hungarian_Plain",
                          "Transdanubia_Lowlands",
                          "Transdanubia_Hills",
                          "Mountains")
+
+pdf(height=4.3)
+par(oma = c(0, 1.5, 0, 1), las = 1)
+plot(wheat.sf[,1], main = "Temperature 1922-1950", axes = TRUE, graticule = TRUE)
+dev.off()
