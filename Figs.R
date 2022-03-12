@@ -43,3 +43,9 @@ Transdanubia_Lowlands <- st_union(Hungary[
     )
 
 HunRegions <- c(Hungarian_Plain, Transdanubia_Lowlands, Transdanubia_Hills, Mountains)
+
+wheat.transform <- t(wheat[,-1])
+colnames(wheat.transform) <- c("Temp1922-1950",
+                               "Temp1951-1980",
+                               "Temp1981-2010",
+                               "ET1981-2010")
