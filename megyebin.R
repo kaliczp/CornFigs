@@ -77,3 +77,4 @@ cantonbins <- function(canton_data, canton_col="abbrev", value_col="value",
 
 
 teszt <- data.frame(abbrev = MegyeNevek.mat[1,-5], value = rnorm(ncol(MegyeNevek.mat)-1))
+cantonbins(teszt)
