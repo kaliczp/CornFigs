@@ -1,21 +1,18 @@
-library(grid)
+library(sf)
 library(tmap)
 tmap_mode("plot")
 
-T2250 <- tm_shape(wheat.sf) +
-    tm_polygons("Temp1922-1950") +
-    tm_layout(legend.show = FALSE)
+T2250 <- st_sf(wheat = wheat.transform[,1], HunRegions)
+T2250$TimeWin <- "Tmean 1922-1950"
 
-T5180 <- tm_shape(wheat.sf) +
-    tm_polygons("Temp1951-1980") +
-    tm_layout(legend.show = FALSE)
+T5180 <- st_sf(wheat = wheat.transform[,2], HunRegions)
+T5180$TimeWin <- "Tmean 1951-1980"
 
-T8110 <- tm_shape(wheat.sf) +
-    tm_polygons("Temp1981-2010") +
-    tm_layout(legend.show = TRUE, legend.position = c("right", "bottom"))
+T8110 <- st_sf(wheat = wheat.transform[,3], HunRegions)
+T8110$TimeWin <- "Tmean 1981-2010"
 
-grid.newpage()
-pushViewport(viewport(layout = grid.layout(1, 3)))
-print(T2250, vp = viewport(layout.pos.col = 1))
-print(T5180, vp = viewport(layout.pos.col = 2))
-print(T8110, vp = viewport(layout.pos.col = 3))
+Wheat <- rbind(T2250, T5180, T8110)
+
+tm_shape(Wheat) +
+    tm_polygons("wheat") +
+    tm_facets("TimeWin", nrow = 1)
