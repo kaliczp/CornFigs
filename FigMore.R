@@ -11,8 +11,18 @@ T5180$TimeWin <- "Tmean 1951-1980"
 T8110 <- st_sf(R2 = wheat.transform[,3], HunRegions)
 T8110$TimeWin <- "Tmean 1981-2010"
 
-Fig1 <- rbind(T2250, T5180, T8110)
+Tm2250 <- st_sf(R2 = wheat.transform[,4], HunRegions)
+Tm2250$TimeWin <- "Tmax 1922-1950"
+
+Tm5180 <- st_sf(R2 = wheat.transform[,5], HunRegions)
+Tm5180$TimeWin <- "Tmax 1951-1980"
+
+Tm8110 <- st_sf(R2 = wheat.transform[,6], HunRegions)
+Tm8110$TimeWin <- "Tmax 1981-2010"
+
+
+Fig1 <- rbind(T2250, T5180, T8110, Tm2250, Tm5180, Tm8110)
 
 tm_shape(Fig1) +
     tm_polygons("R2") +
-    tm_facets("TimeWin", nrow = 1)
+    tm_facets("TimeWin", nrow = 2)
