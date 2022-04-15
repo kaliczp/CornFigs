@@ -25,5 +25,6 @@ Fig1 <- rbind(T2250, T5180, T8110, Tm2250, Tm5180, Tm8110)
 Fig1$TimeWin <- factor(Fig1$TimeWin, levels = unique(Fig1$TimeWin),  ordered=TRUE)
 
 tm_shape(Fig1) +
-    tm_polygons("R2") +
+    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
+    tm_borders() +
     tm_facets("TimeWin", nrow = 2)
