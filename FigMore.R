@@ -22,6 +22,7 @@ Tm8110$TimeWin <- "Tmax 1981-2010"
 
 
 Fig1 <- rbind(T2250, T5180, T8110, Tm2250, Tm5180, Tm8110)
+Fig1$TimeWin <- factor(Fig1$TimeWin, levels = unique(Fig1$TimeWin),  ordered=TRUE)
 
 tm_shape(Fig1) +
     tm_polygons("R2") +
