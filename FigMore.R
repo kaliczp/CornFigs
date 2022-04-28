@@ -28,7 +28,9 @@ Fig1.tm <- tm_shape(Fig1) +
     tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
     tm_borders() +
     tm_layout(legend.outside = TRUE,
-              panel.label.bg.color = 'white',
+              frame = FALSE,
+              frame.lwd = NA,
+              panel.label.bg.color = NA,
               asp = 0) +
     tm_facets("TimeWin", nrow = 2)
 
