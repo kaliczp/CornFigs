@@ -32,4 +32,4 @@ Fig1.tm <- tm_shape(Fig1) +
               asp = 0) +
     tm_facets("TimeWin", nrow = 2)
 
-tmap_save(Fig1.tm, filename = "Fig1.png", height = 2.2, width = 5, asp = 0)
+tmap_save(Fig1.tm, filename = "Fig1.png", height = 6/2.54, width = 11/2.54, asp = 0)
