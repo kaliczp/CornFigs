@@ -31,6 +31,7 @@ Fig1.tm <- tm_shape(Fig1) +
               frame = FALSE,
               frame.lwd = NA,
               panel.label.bg.color = NA,
+              legend.show = FALSE,
               asp = 0) +
     tm_facets("TimeWin", nrow = 2)
 
