@@ -27,7 +27,8 @@ Fig1$TimeWin <- factor(Fig1$TimeWin, levels = unique(Fig1$TimeWin),  ordered=TRU
 Fig1.tm <- tm_shape(Fig1) +
     tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
     tm_borders() +
-    tm_layout(legend.outside = TRUE) + 
+    tm_layout(legend.outside = TRUE,
+              asp = 0) +
     tm_facets("TimeWin", nrow = 2)
 
-tmap_save(Fig1.tm, filename = "Fig1.png", height = 4, width = 5, asp = 0)
+tmap_save(Fig1.tm, filename = "Fig1.png", height = 2.2, width = 5, asp = 0)
