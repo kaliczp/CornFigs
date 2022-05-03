@@ -3,22 +3,28 @@ library(tmap)
 tmap_mode("plot")
 
 T2250 <- st_sf(R2 = wheat.transform[,1], HunRegions)
-T2250$TimeWin <- "Tmean 1922-1950"
+T2250$TimeWin <- "1922–1950"
+T2250$Param <- "Tmean"
 
 T5180 <- st_sf(R2 = wheat.transform[,2], HunRegions)
-T5180$TimeWin <- "Tmean 1951-1980"
+T5180$TimeWin <- "1951–1980"
+T5180$Param <- "Tmean"
 
 T8110 <- st_sf(R2 = wheat.transform[,3], HunRegions)
-T8110$TimeWin <- "Tmean 1981-2010"
+T8110$TimeWin <- "1981–2010"
+T8110$Param <- "Tmean"
 
 Tm2250 <- st_sf(R2 = wheat.transform[,4], HunRegions)
-Tm2250$TimeWin <- "Tmax 1922-1950"
+Tm2250$TimeWin <- "1922–1950"
+Tm2250$Param <- "Tmax"
 
 Tm5180 <- st_sf(R2 = wheat.transform[,5], HunRegions)
-Tm5180$TimeWin <- "Tmax 1951-1980"
+Tm5180$TimeWin <- "1951–1980"
+Tm5180$Param <- "Tmax"
 
 Tm8110 <- st_sf(R2 = wheat.transform[,6], HunRegions)
-Tm8110$TimeWin <- "Tmax 1981-2010"
+Tm8110$TimeWin <- "1981–2010"
+Tm8110$Param <- "Tmax"
 
 
 Fig1 <- rbind(T2250, T5180, T8110, Tm2250, Tm5180, Tm8110)
@@ -33,6 +39,6 @@ Fig1.tm <- tm_shape(Fig1) +
               panel.label.bg.color = NA,
               legend.show = FALSE,
               asp = 0) +
-    tm_facets("TimeWin", nrow = 2)
+    tm_facets(c("TimeWin", "Param"), ncol = 2)
 
-tmap_save(Fig1.tm, filename = "Fig1.png", height = 6/2.54, width = 11/2.54, asp = 0)
+tmap_save(Fig1.tm, filename = "Fig1.png", height = 8/2.54, width = 6/2.54, asp = 0)
