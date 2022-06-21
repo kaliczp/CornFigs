@@ -31,7 +31,7 @@ Fig1 <- rbind(T2250, T5180, T8110, Tm2250, Tm5180, Tm8110)
 Fig1$TimeWin <- factor(Fig1$TimeWin, levels = unique(Fig1$TimeWin),  ordered=TRUE)
 
 Fig1.tm <- tm_shape(Fig1) +
-    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
+    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
     tm_layout(legend.outside = TRUE,
               frame = FALSE,
@@ -41,4 +41,5 @@ Fig1.tm <- tm_shape(Fig1) +
               asp = 0) +
     tm_facets(c("TimeWin", "Param"), ncol = 2)
 
-tmap_save(Fig1.tm, filename = "Fig1.png", height = 8/2.54, width = 6/2.54, asp = 0)
+tmap_save(Fig1.tm, filename = "Fig1.png", height = 80/25.4, width = 84/25.4, asp = 0)
+tmap_save(Fig1.tm, filename = "Fig1.eps", height = 80/25.4, width = 84/25.4, asp = 0)
