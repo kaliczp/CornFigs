@@ -23,9 +23,10 @@ tmap_options_reset()
 Fig2.tm <- tm_shape(Fig2) +
     tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
     tm_borders() +
-    tm_layout(main.title = "TmeanMay-July + ", #expression(bold(Teszt)),
-              main.title.position = "center",
-              panel.labels = c(expression(plain(Prec)), expression(plain(Prec-PET)), expression(plain(Tmean[Jan-March]))),
+    tm_layout(title = c(expression(plain(Prec)), expression(plain(Prec-PET)), expression(plain(Tmean[Jan-March]))),
+              title.position = c("center","top"), title.size = 0.9,
+              panel.labels = c("",expression(bold(Tmean[May-July] + ldots)),""),
+              panel.label.size = 1,
               legend.show = FALSE,
               frame = FALSE,
               frame.lwd = NA,
@@ -33,4 +34,7 @@ Fig2.tm <- tm_shape(Fig2) +
               asp = 0) +
     tm_facets("TimeWin", nrow = 1)
 
-tmap_save(Fig2.tm, filename = "Fig2.png", height = 25/25.4, width = 84/25.4, asp = 0)
+tmap_save(Fig2.tm, filename = "Fig2.png", height = 35/25.4, width = 84/25.4, asp = 0)
+tmap_save(Fig2.tm, filename = "Fig2.eps", height = 35/25.4, width = 84/25.4, asp = 0)
+
+
