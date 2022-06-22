@@ -2,39 +2,42 @@ library(sf)
 library(tmap)
 tmap_mode("plot")
 
-TPrec8110 <- st_sf(R2 = wheat2.transform[,1], HunRegions)
-TPrec8110$TimeWin <- "TmeanPrec"
+First <- st_sf(R2 = wheat2.transform[,4], HunRegions)
+First$TimeWin <- "1922-1950"
+First$Param <- "TmeanPrec"
 
-TPrecPET8110 <- st_sf(R2 = wheat2.transform[,2], HunRegions)
-TPrecPET8110$TimeWin <- "TmeanPrecPET"
+Secnd <- st_sf(R2 = wheat2.transform[,5], HunRegions)
+Secnd$TimeWin <- "1922-1950"
+Secnd$Param <- "TmeanTean"
 
-TTmean8110 <- st_sf(R2 = wheat2.transform[,3], HunRegions)
-TTmean8110$TimeWin <- "Tmean"
+Third <- st_sf(R2 = wheat2.transform[,6], HunRegions)
+Third$TimeWin <- "1951-1980"
+Third$Param <- "TmeanPrec"
 
-Fig2 <- rbind(TPrec8110, TPrecPET8110, TTmean8110)
-Fig2$TimeWin <- factor(Fig2$TimeWin, levels = unique(Fig2$TimeWin),  ordered=TRUE)
+Fourth <- st_sf(R2 = wheat2.transform[,7], HunRegions)
+Fourth$TimeWin <- "1951-1980"
+Fourth$Param <- "TmeanTean"
 
-tmap_options(legend.outside = TRUE, legend.stack = "horizontal", legend.outside.position = "bottom", legend.width = 1)
+FigS1 <- rbind(First, Secnd, Third, Fourth)
+FigS1$TimeWin <- factor(FigS1$TimeWin, levels = unique(FigS1$TimeWin),  ordered=TRUE)
+FigS1$Param <- factor(FigS1$Param, levels = unique(FigS1$Param),  ordered=TRUE)
 
-, legend.outside.size = 2)
-
-tmap_options_reset()
-
-Fig2.tm <- tm_shape(Fig2) +
-    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
+FigS1.tm <- tm_shape(FigS1) +
+    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
-    tm_layout(title = c(expression(plain(Prec)), expression(plain(Prec-PET)), expression(plain(Tmean[Jan-March]))),
+    tm_layout(title = c(expression(bold(plain(Prec))),expression(bold(Tmean[Jan-March])),"",""),
               title.position = c("center","top"), title.size = 0.9,
-              panel.labels = c("",expression(bold(Tmean[May-July] + ldots)),""),
-              panel.label.size = 1,
-              legend.show = FALSE,
               frame = FALSE,
               frame.lwd = NA,
+              panel.labels = list(c("1922-1950", "1951-1980"),
+                                  c(expression(bold(Tmean[May-July] + ldots)),expression(plain(Tmean[May-July] + ldots)))),
               panel.label.bg.color = NA,
+              panel.label.size = 1,
+              legend.show = FALSE,
               asp = 0) +
-    tm_facets("TimeWin", nrow = 1)
+    tm_facets(c("TimeWin", "Param"), ncol = 2)
 
-tmap_save(Fig2.tm, filename = "Fig2.png", height = 35/25.4, width = 84/25.4, asp = 0)
-tmap_save(Fig2.tm, filename = "Fig2.eps", height = 35/25.4, width = 84/25.4, asp = 0)
+tmap_save(FigS1.tm, filename = "FigS1.png", height = 80/25.4, width = 84/25.4, asp = 0)
+tmap_save(FigS1.tm, filename = "FigS1.eps", height = 80/25.4, width = 84/25.4, asp = 0)
 
 
