@@ -21,7 +21,7 @@ tmap_options(legend.outside = TRUE, legend.stack = "horizontal", legend.outside.
 tmap_options_reset()
 
 Fig2.tm <- tm_shape(Fig2) +
-    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
+    tm_fill("R2", palette = "Blues", breaks = seq(0,0.8,by=0.1)) +
     tm_borders() +
     tm_layout(title = c(expression(plain(Prec)), expression(plain(Prec-PET)), expression(plain(Tmean[Jan-March]))),
               title.position = c("center","top"), title.size = 0.9,
