@@ -23,7 +23,7 @@ FigS1$TimeWin <- factor(FigS1$TimeWin, levels = unique(FigS1$TimeWin),  ordered=
 FigS1$Param <- factor(FigS1$Param, levels = unique(FigS1$Param),  ordered=TRUE)
 
 FigS1.tm <- tm_shape(FigS1) +
-    tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1), legend.is.portrait = FALSE) +
+    tm_fill("R2", palette = "Blues", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
     tm_layout(title = c(expression(bold(plain(Prec))),expression(bold(Tmean[Jan-March])),"",""),
               title.position = c("center","top"), title.size = 0.9,
