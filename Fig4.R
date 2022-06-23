@@ -29,4 +29,14 @@ Fig4full.tm <- tm_shape(Fig4full) +
 tmap_save(Fig4full.tm, filename = "Fig4.png", height = 80/25.4, width = 84/25.4, asp = 0)
 tmap_save(Fig4full.tm, filename = "Fig4.eps", height = 80/25.4, width = 84/25.4, asp = 0)
 
+## Legend creation
+Fig4full.tm <- tm_shape(Fig4full) +
+    tm_fill("R2", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
+    tm_borders() +
+    tm_layout(frame = FALSE,
+              frame.lwd = NA,
+              panel.label.bg.color = NA,
+              legend.show = TRUE,
+              asp = 0) +
+    tm_facets(c("TimeWin", "Param"), ncol = 2)
 
