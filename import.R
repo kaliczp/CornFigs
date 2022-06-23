@@ -7,3 +7,8 @@ wheat2ok <- wheat2.transform[,1:3]
 
 Fig3.raw <- read.table("Fig3.txt", sep = ";", head = TRUE)
 Fig3.ok <- t(Fig3.raw[,-c(1,2)])
+
+## Fig 4
+
+Fig4.raw <- read.table("Fig4.txt", sep = ";", head = TRUE)
+Fig4.ok <- t(Fig4.raw[,-c(1,2)])
