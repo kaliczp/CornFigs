@@ -19,8 +19,16 @@ Fig4full$Param <- factor(Fig4full$Param, levels = unique(Fig4full$Param),  order
 Fig4full.tm <- tm_shape(Fig4full) +
     tm_fill("R2", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
-    tm_layout(frame = FALSE,
+    tm_layout(title = c(expression(plain(Tmean) + bold(Prec)),
+                        expression(plain(Tmean) + bold(Prec-PET)),
+                        expression(bold(Tmax) + plain(Prec)),
+                        expression(plain(Tmax) + bold(Prec-PET))
+                        ),
+              title.position = c("center","top"), title.size = 0.9,
+              frame = FALSE,
               frame.lwd = NA,
+              panel.labels = list(c("1981-2010", "1981-2010"),
+                                  c("", "")),
               panel.label.bg.color = NA,
               legend.show = FALSE,
               asp = 0) +
