@@ -17,7 +17,7 @@ Fig4full$TimeWin <- factor(Fig4full$TimeWin, levels = unique(Fig4full$TimeWin), 
 Fig4full$Param <- factor(Fig4full$Param, levels = unique(Fig4full$Param),  ordered=TRUE)
 
 Fig4full.tm <- tm_shape(Fig4full) +
-    tm_fill("R2", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
+    tm_fill("R2", palette = "Blues", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
     tm_layout(title = c(expression(plain(Tmean) + bold(Prec)),
                         expression(plain(Tmean) + bold(Prec-PET)),
@@ -39,7 +39,7 @@ tmap_save(Fig4full.tm, filename = "Fig4.eps", height = 80/25.4, width = 84/25.4,
 
 ## Legend creation
 Fig4full.tm <- tm_shape(Fig4full) +
-    tm_fill("R2", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
+    tm_fill("R2", palette = "Blues", breaks = seq(0,0.8,by=0.1), legend.is.portrait = FALSE) +
     tm_borders() +
     tm_layout(frame = FALSE,
               frame.lwd = NA,
