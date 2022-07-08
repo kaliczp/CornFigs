@@ -28,7 +28,7 @@ Fig2.tm <- tm_shape(Fig2) +
     tm_fill("R2", palette = "Blues", breaks = seq(0,0.8,by=0.1)) +
     tm_borders() +
     tm_layout(panel.labels = c(expression(bold(Tmean[May-July]) + plain(Prec)),
-                               expression(bold(Tmean[May-July]) + plain(Prec-PET)),
+                               expression(bold(Tmean[May-July]) + plain(Prec) - plain(PET)),
                                expression(bold(Tmean[May-July]) + plain(Tmean[Jan-March]))
                                ),
               panel.label.size = 0.7,

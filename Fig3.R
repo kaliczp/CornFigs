@@ -22,6 +22,10 @@ Fig3full.tm <- tm_shape(Fig3full) +
     tm_layout(frame = FALSE,
               frame.lwd = NA,
               panel.label.bg.color = NA,
+              panel.labels = list(c("1922-1950", "1951-1980", "1981-2010"),
+                                  c(expression(plain(Prec)),
+                                    expression(plain(Prec) - plain( PET)))
+                                  ),
               legend.show = FALSE,
               asp = 0) +
     tm_facets(c("TimeWin", "Param"), ncol = 2)
