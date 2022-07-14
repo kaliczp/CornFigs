@@ -29,8 +29,9 @@ FigLocationHun.tm <-
     tm_shape(HunRegions.sf) +
     tm_polygons("Names", palette = HunPalette) +
     tm_layout(legend.show = FALSE) +
-    tm_text("Names", just = "center") +
+    tm_text("Names") +
     tm_scale_bar(breaks = c(0, 50, 100), text.size = 1)
 
-tmap_save(FigLocationHun.tm, filename = "FigLocationHun.png", height = 40/25.4, width = 84/25.4, asp = 0)
-tmap_save(FigLocationHun.tm, filename = "FigLocationHun.eps", height = 40/25.4, width = 84/25.4, asp = 0)
+
+tmap_save(FigLocationHun.tm, filename = "FigLocationHun.png", height = 40/25.4, width = 50/25.4, asp = 0)
+tmap_save(FigLocationHun.tm, filename = "FigLocationHun.eps", height = 40/25.4, width = 50/25.4, asp = 0)
