@@ -5,7 +5,7 @@ wheat2ok <- wheat2.transform[,1:3]
 
 ## Fig 3
 
-Fig3.raw <- read.table("Fig3.txt", sep = ";", head = TRUE)
+Fig3.raw <- read.table("Fig5exFig3.csv", sep = ";", head = TRUE)
 Fig3.ok <- t(Fig3.raw[,-c(1,2)])
 
 ## Fig 4

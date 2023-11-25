@@ -1,3 +1,4 @@
+## Fig. 5 now
 library(sf)
 library(tmap)
 tmap_mode("plot")
@@ -22,7 +23,7 @@ Fig3full.tm <- tm_shape(Fig3full) +
     tm_layout(frame = FALSE,
               frame.lwd = NA,
               panel.label.bg.color = NA,
-              panel.labels = list(c("1922-1950", "1951-1980", "1981-2010"),
+              panel.labels = list(c("1921-1950", "1951-1980", "1981-2010"),
                                   c(expression(plain(Prec)),
                                     expression(plain(Prec) - plain( PET)))
                                   ),
