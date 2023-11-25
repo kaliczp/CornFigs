@@ -27,6 +27,7 @@ HunPalette <- get_brewer_pal("PuOr", n = 4)
 
 FigLocationHun.tm <-
     tm_shape(HunRegions.sf) +
+    tm_graticules(n.x = 2, n.y = 2) +
     tm_polygons("Names", palette = HunPalette) +
     tm_layout(legend.show = FALSE) +
     tm_text("Names") +
