@@ -50,7 +50,13 @@ gg <- ggplot(T2, aes(x=Years, y=Mean)) +
                       ymax = Mean + SD)) +
     geom_point() +
     facet_grid(Param ~ Land, scales = "free", switch = "y") +
-    theme_classic()
+    theme_minimal() ## Ver 4
+
+theme_light() ## Ver 1
+theme_linedraw() ## Ver 2
+theme_bw() ## Ver 3
+theme_minimal() ## Ver 4
+theme_classic() ## Ver 5
 
 pdf(file = "Table2Fig.pdf")
 gg
