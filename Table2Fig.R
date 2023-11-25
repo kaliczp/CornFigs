@@ -28,9 +28,20 @@ T2 <- cbind(Land = c("HP", "TL", "TH", "H"), T2)
 T2 <- cbind(Param = rep(c("Wheat", "MeanTemp", "PrecFeb", "PrecPETFeb",
                           "Maize", "MaxTemp","PrecMay", "PrecPETMay"), each = 4), T2)
 
-T2$Param <- factor(T2$Param, levels = unique(T2$Param), ordered = TRUE)
-T2$Land <- factor(T2$Land, levels = unique(T2$Land), ordered = TRUE)
-T2$Years <- factor(T2$Years, levels = unique(T2$Years), ordered = TRUE)
+T2$Param <- factor(T2$Param,
+                   levels = c("Wheat", "Maize", "MeanTemp",
+                              "MaxTemp", "PrecFeb", "PrecMay",
+                              "PrecPETFeb", "PrecPETMay"),
+                   labels = c("Wheat", "Maize", "Temp1",
+                              "Temp2", "Prec1", "Prec2",
+                              "PrecPET1", "PrecPET2"),
+                   ordered = TRUE)
+T2$Land <- factor(T2$Land, levels = unique(T2$Land),
+                  labels = c("Hungarian Plain", "Transdanubian Lowlands",
+                             "Transdanubian Hills", "Highlands"),
+                  ordered = TRUE)
+T2$Years <- factor(T2$Years, levels = unique(T2$Years),
+                   labels = c("21-50", "51-80", "81-10"), ordered = TRUE)
 
 library(ggplot2)
 
