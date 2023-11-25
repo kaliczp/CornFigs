@@ -49,7 +49,7 @@ gg <- ggplot(T2, aes(x=Years, y=Mean)) +
     geom_errorbar(aes(ymin = Mean - SD,
                       ymax = Mean + SD)) +
     geom_point() +
-    facet_grid(Param ~ Land, scales = "free") +
+    facet_grid(Param ~ Land, scales = "free", switch = "y") +
     theme_classic()
 
 pdf(file = "Table2Fig.pdf")
