@@ -25,8 +25,8 @@ ttnew <- cbind(Years = "1981-2010", ttnew)
 T2 <- rbind(T2, ttnew)
 
 T2 <- cbind(Land = c("HP", "TL", "TH", "H"), T2)
-T2 <- cbind(Param = rep(c("Wheat", "MeanTemp", "PrecFeb", "PrecPETFeb",
-                          "Maize", "MaxTemp","PrecMay", "PrecPETMay"), each = 4), T2)
+T2 <- cbind(Param = c(rep(rep(c("Wheat", "MeanTemp", "PrecFeb", "PrecPETFeb"), each = 4), 3),
+                      rep(rep(c("Maize", "MaxTemp","PrecMay", "PrecPETMay"), each = 4), 3)), T2)
 
 T2$Param <- factor(T2$Param,
                    levels = c("Wheat", "Maize", "MeanTemp",
