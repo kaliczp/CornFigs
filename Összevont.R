@@ -22,17 +22,15 @@ Fig2$R2 <- Fig2$R2 * -1
 
 tmap_options(legend.outside = TRUE, legend.stack = "horizontal", legend.outside.position = "bottom", legend.width = 1)
 
-, legend.outside.size = 2)
-
-tmap_options_reset()
+# tmap_options_reset()
 
 ## Korábban Fig2, azután Fig4Legendjav, majd a cikkben Fig3
 Fig2.tm <- tm_shape(Fig2) +
     tm_fill("R2", breaks = seq(-0.8,0.8,by=0.1)) +
     tm_borders() +
     tm_layout(panel.labels = c(
-                  expression(plain(Tmean[May-July]) + plain(Tmean[Jan-March] ~ Wheat)),
-                  expression(plain(Tmean[May-Aug]) + plain(Prec[May-Aug] ~ Maize))
+                  expression(bold(Tmean[May-July]) + plain(Tmean[Jan-March] ~ Wheat)),
+                  expression(bold(Tmean[May-Aug]) + plain(Prec[May-Aug] ~ Maize))
                   ),
               panel.label.size = 0.7,
               legend.show = FALSE,
@@ -43,4 +41,4 @@ Fig2.tm <- tm_shape(Fig2) +
     tm_facets("Param", nrow = 1)
 
 tmap_save(Fig2.tm, filename = "Combined.png", height = 29/25.4, width = 116/25.4, asp = 0)
-tmap_save(Fig2.tm, filename = "Combined.eps", height = 29/25.4, width = 116/25.4, asp = 0)
+tmap_save(Fig2.tm, filename = "Combined.eps", height = 35/25.4, width = 90/25.4, asp = 0)
